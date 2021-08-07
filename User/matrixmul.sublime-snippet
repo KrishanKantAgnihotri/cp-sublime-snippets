@@ -1,0 +1,78 @@
+<snippet>
+	<content><![CDATA[
+// #include <bits/stdc++.h>
+// #define endl "\n"
+// #define ll long long
+#define MAX 101
+#define MOD 1000000007
+using namespace std;
+int a[MAX][MAX];int I[MAX][MAX];
+void mul(int a[MAX][MAX], int I[MAX][MAX],int n)
+{
+
+    int res[n][n];
+    for(int i = 0 ; i<n ; i++)
+        for(int j = 0 ; j<n ;j++)
+    {
+
+        res[i][j]=0;
+        for(int k = 0 ;k<n ;k++)
+            res[i][j]=(res[i][j]%MOD+(a[i][k]*I[k][j])%MOD)%MOD;}
+        for(int i = 0 ; i<n ;i++)
+            for(int j = 0 ; j<n ;j++)
+            a[i][j]=res[i][j];
+
+}
+void powM(int a[MAX][MAX],int n , int p)
+{ int I[MAX][MAX];
+for(int i = 0 ; i<n ; i++)
+    for(int j = 0 ; j<n; j++)
+    {if(i==j)
+    I[i][j]=1;
+    else
+    I[i][j]=0;}
+  while(p)
+  {
+      if(p%2!=0)
+      {mul(I,a,n);
+      p--;
+      }else
+      {
+      mul(a,a,n);
+      p>>=1;}
+
+  }
+    for(int i = 0  ; i<n; i++)
+        for(int j = 0 ; j<n ;j++)
+        a[i][j]=I[i][j];
+}
+void print(int a[][101],int n)
+{
+for(int i = 0 ; i<n ;i++)
+{        for(int j = 0 ; j<n ; j++)
+        cout<<a[i][j]<<" ";
+cout<<endl;
+}
+}
+// int main()
+// {ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+//     int t;
+//     cin>>t;
+//     while(t--)
+//     {int dim,n;//dimension of matrix and n is the power of matrix
+//     cin>>dim>>n;
+//     //int mat[dim][dim];
+//     for(int i = 0 ; i<dim ;i++)
+//         for(int j = 0 ; j<dim ;j++)
+//         cin>>a[i][j];
+//     powM(a,dim,n);
+//     print(a,dim);
+//     }
+// }
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>matrixmul</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

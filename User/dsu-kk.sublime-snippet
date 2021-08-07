@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[
+vector<ll> rnk(N+1,0);
+vector<ll> par(N,0);
+vector<ll> mx(N,INT_MIN);
+vector<ll> mn(N,INT_MAX);
+vector<ll> sz(N,1);
+ll fnd(ll a){
+    if(par[a]==a)
+        return par[a];
+    return par[a] = fnd(par[a]);
+}
+ll merge(ll a,ll b){
+//merge smaller into bigger
+a= fnd(a);
+b= fnd(b);
+if(sz[a]>sz[b])
+    swap(a,b);
+par[a]=b;
+mn[b]=min(mn[a],mn[b]);
+mx[b]=max(mx[a],mx[b]);
+if(a!=b)
+sz[b]+=sz[a];
+
+
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dsu-kk</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
