@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[
+int nCrDigits(int n, int r)
+{
+    if(n==r||r==0)
+        return 1;
+    if(r>n)
+        return 0;
+    if(n<0)
+        return 0;
+    int ans=(fact[n]*ifact[n-r])%MOD;
+    ans=(ans*ifact[r])%MOD;
+    return ans;
+}   
+
+ll ncrL(ll n,ll r){
+    if(r==0||n==r)
+     return 1;
+    if(r>n)
+        return 0;     
+    if(n<0)
+        return 0;        
+   int dig_n = n%MOD;
+   int dig_r = r%MOD; 
+  return (nCrDigits(dig_n,dig_r) * ncrL(n/MOD, r/MOD))%MOD;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<!-- <tabTrigger>hello</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

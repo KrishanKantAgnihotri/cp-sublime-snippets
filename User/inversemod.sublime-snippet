@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+//fast_expo + MOD
+
+ll ipowM(ll base ,ll exp,ll MOD){
+    ll res = 1;
+    while(exp>0){
+        if(exp&1) res = (res*base)%MOD;
+        exp>>=1;
+        base = (base*base)%MOD;
+    }
+return res;
+}
+//INVERSE 
+ll invM(ll num ,ll m){
+    return ipowM(num,m-2,m);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>inversemod</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

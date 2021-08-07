@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+const ll mx = 1e7+1 ; 
+vector<int> prime;
+int lps[mx];
+void linear_sieve(){
+
+memset(lps,0,sizeof(lps));
+for(int i = 2 ;i<mx;i++){
+	if(lps[i]==0){
+		prime.pb(i);
+		lps[i] = i ; 
+	}
+	for(int j = 0 ;(j<prime.size())&&(lps[i]>=prime[j])&&((i*prime[j]<mx)) ; j++)
+		lps[prime[j]*i] = prime[j];
+}
+
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>linearsieve</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

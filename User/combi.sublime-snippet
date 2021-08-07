@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+//combi
+const long long int x = 100 ;
+ll fact[x+1];
+ll ifact[x+1];
+void prefact(ll MOD){
+    fact[0]=1;
+    ifact[0]=1;
+    for(ll i = 1 ;i<=x ;i++){
+        fact[i] = (fact[i-1]*i)%MOD;
+        ifact[i] = (ifact[i-1]*invM(i,MOD))%MOD;
+    }
+}
+ll add(ll a,ll b){
+    return (a+b+MOD)%MOD;
+}
+ll mul(ll a,ll b){
+    return (a*1LL*b)%MOD;
+}
+ll ncr(ll n,ll k){
+    if(k>n)
+        return 0;
+    return mul(fact[n],mul(ifact[n-k],ifact[k]))%MOD;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>combi</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

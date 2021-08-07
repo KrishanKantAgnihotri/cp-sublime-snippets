@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+		void file_io(){
+fast_io
+    #ifndef ONLINE_JUDGE
+    freopen("inputa.txt","r",stdin);
+    freopen("outputa.txt","w",stdout);
+    freopen("log.txt","w",stderr);
+    #endif
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>file</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

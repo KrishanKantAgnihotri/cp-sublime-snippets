@@ -1,0 +1,28 @@
+{"tests_file_suffix": "__tests",
+   "cpp_complete_enabled": false,
+   "run_settings": [
+       {
+           "name": "C++",
+           "extensions": ["cpp"],
+           "compile_cmd": "g++ -fmessage-length=38 -Warray-bounds -Wmisleading-indentation -Wformat=2 -Wmaybe-uninitialized -Wsign-compare -Wconversion -Wshift-overflow=2 -Wstrict-overflow=5 -Wshadow  -D_GLIBCXX_DEBUG \"{source_file}\" -Wl,--stack=268435456 -O2 -std=c++17 -o \"{file_name}\"",
+           "run_cmd": "\"{source_file_dir}\\{file_name}.exe\" {args} -debug",
+           "lint_compile_cmd": "g++ -Warray-bounds -Wmisleading-indentation -Wformat=2 -Wmaybe-uninitialized -Wsign-compare -Wconversion -Wshift-overflow=2 -Wstrict-overflow=5 -Wshadow -Wdangling-else -std=c++17 \"{source_file}\" -I \"{source_file_dir}\""
+            
+       },
+
+       {
+           "name": "Python",
+           "extensions": ["py"],
+           "compile_cmd": null,
+           "run_cmd": "python \"{source_file}\""
+       },
+
+       {
+           "name": "C",
+           "extensions": ["c"],
+           "compile_cmd": "gcc \"{source_file}\" -std=c99 -o \"{file_name}\"",
+           "run_cmd": "\"{source_file_dir}\\{file_name}.exe\"",
+       }
+
+   ]
+}
