@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+vector<int> primes;
+const ll x = 1e6+1;
+vector<bool>  isprime(x,true);
+void sieve(){
+isprime[1] = false;
+for(ll i = 2 ;i*i<=x ;i++){
+    if(isprime[i]){
+   //primes.pb(i);
+    for(ll j = i*i ;j<=x;j+=i){
+        isprime[j] = false;
+
+    }
+}
+}
+for(int i = 2 ;i<=x ;i++){
+    if(isprime[i])
+    primes.pb(i);
+}
+
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sieve</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

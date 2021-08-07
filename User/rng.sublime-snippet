@@ -1,0 +1,13 @@
+<snippet>
+   <content><![CDATA[
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+int randint(int L, int R) {
+   uniform_int_distribution<int> dist(L, R);
+   return dist(rng);
+}
+
+]]></content>
+   <tabTrigger>rng</tabTrigger>
+   <description>Random number generator</description>
+   <scope>source.c, source.objc, source.c++, source.objc++</scope>
+</snippet>

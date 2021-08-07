@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+/*etf : euler totient function 
+phi(x) : no. of numbers , in the range [0,..., x-1] that are coprime to x. 
+phi(p), where p is prime ,is equal to p-1//pretty obvious
+phi(p^k)  = p^k - p^(k-1)// not so obvious XD 
+explaination : 
+p^k coprime numbers are all numbers - multiple of p ;
+= p^k - (total)/p = p^k - p^(k-1)
+phi(m*n)  = phi(m)*phi(n) :: if m and n are coprime
+phi(n) = ??
+let say n = p1^(a1)*p2^(a2)*(p3)^(a3)......
+so phi(n) = (p1^a1 - p1^(a1-1))*(p2^a2 - p2^(a2-1)*........)
+simply 
+phi(n) = n*(product(1- 1/(pi)))
+*/
+ll phi(ll n){
+    ll ans =  n;  
+    for(ll i = 2 ; i*i<=n ;i++){
+        if(n%i == 0 ){
+            while(n%i==0)
+                n/=i;
+            ans -= (ans/i);
+        }
+    }
+    if(n>1)
+        ans-=(ans/n);
+    return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>phi</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
